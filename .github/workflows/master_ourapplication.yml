@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy JAR app to Azure Web App - ourapplication
+name: Build and deploy JAR app to Azure Web App - sitexyz
 
 on:
   push:
@@ -28,15 +28,13 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: java-app
-          path: path/to/artifact/world.txt
-      - name: Test artifact download
-        run: ls -R
+          path: '${{ github.workspace }}/target/*.jar'
 
   deploy:
     runs-on: windows-latest
     needs: build
     environment:
-      name: 'Production'
+      name: 'production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -49,7 +47,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'ourapplication'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2E5143DB0FB043179BC371D4BA0C4016 }}
+          app-name: 'sitexyz'
+          slot-name: 'production'
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_1234 }}
           package: '*.jar'
