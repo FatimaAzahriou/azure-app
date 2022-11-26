@@ -29,6 +29,8 @@ jobs:
         with:
           name: java-app
           path: '${{ github.workspace }}/target/*.jar'
+      - name: Test artifact download
+        run: ls -R
 
   deploy:
     runs-on: windows-latest
@@ -42,8 +44,6 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: java-app
-      - name: Test artifact download
-        run: ls -R
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
