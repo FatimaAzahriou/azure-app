@@ -28,7 +28,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          path: path/to/artifact/world.txt
       - name: Test artifact download
         run: ls -R
 
