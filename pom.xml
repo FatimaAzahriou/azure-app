@@ -12,7 +12,7 @@
 	<artifactId>absence_management_boot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>absence_management_boot</name>
+	<name>absencemanagementboot</name>
 	<description>Spring boot version of absence management</description>
 	<properties>
 		<java.version>11</java.version>
